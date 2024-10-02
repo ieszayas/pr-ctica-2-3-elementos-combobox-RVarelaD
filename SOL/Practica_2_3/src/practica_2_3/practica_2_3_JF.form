@@ -59,12 +59,13 @@
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="comboElemento" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="comboElemento" pref="150" max="32767" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Component id="botonBorrarTodo" min="-2" max="-2" attributes="0"/>
                                   <Component id="botonAñadirTodo" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="comboCursos" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                       </Group>
@@ -77,7 +78,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="Texto1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="comboCursos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="comboElemento" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="textoEntrada" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -89,7 +92,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botonBorrarTodo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="90" max="32767" attributes="0"/>
+                  <EmptySpace pref="60" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,6 +148,19 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonBorrarTodoActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboCursos">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Primero"/>
+                <StringItem index="1" value="Segundo"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
