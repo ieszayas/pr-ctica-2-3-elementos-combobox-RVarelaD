@@ -15,6 +15,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
         modulosCurso.add("Lenguaje de Marcas");
     }
 
+    //Metodo para comprobar si existen o no los modulos (devuelve boolean)
     private boolean existeModuloEnComboBox(String modulo) {
 
         for (int i = 0; i < comboElemento.getItemCount(); i++) {
