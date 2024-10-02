@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package practica_2_3;
 
 import java.util.ArrayList;
@@ -17,7 +13,16 @@ public class practica_2_3_JF extends javax.swing.JFrame {
         modulosCurso.add("Sistemas de Gestion Empresarial");
         modulosCurso.add("Acceso a Datos");
         modulosCurso.add("Lenguaje de Marcas");
+    }
 
+    private boolean existeModuloEnComboBox(String modulo) {
+
+        for (int i = 0; i < comboElemento.getItemCount(); i++) {
+            if (comboElemento.getItemAt(i).equalsIgnoreCase(modulo)) {
+                return true;  // Si encuentra el módulo, devuelve true
+            }
+        }
+        return false;
     }
 
     public practica_2_3_JF() {
@@ -140,38 +145,36 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     }//GEN-LAST:event_textoEntradaActionPerformed
 
     private void botonAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirActionPerformed
+
         String modulo = textoEntrada.getText();
         String moduloPredet = "Añada un modulo.";
 
         if (modulo.equalsIgnoreCase(moduloPredet)) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Introduce un modulo valido.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Introduce un módulo válido.", "ERROR", JOptionPane.ERROR_MESSAGE);
             textoEntrada.setText(moduloPredet);
             return;
         }
 
         if (modulo.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El modulo no puede estar vacío. Introduzca un modulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El módulo no puede estar vacío. Introduzca un módulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        boolean existe = false;
-        for (int i = 0; i < comboElemento.getItemCount(); i++) {
-            if (comboElemento.getItemAt(i).equalsIgnoreCase(modulo)) {
-                existe = true;
-                break;
-            }
+        if (modulo.charAt(0) == ' ' || modulo.charAt(modulo.length() - 1) == ' ') {
+            JOptionPane.showMessageDialog(this, "El módulo no puede empezar/terminar por un espacio.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
-        if (existe) {
+        if (existeModuloEnComboBox(modulo)) {
             JOptionPane.showMessageDialog(this, "El módulo ya existe en la lista.", "ERROR", JOptionPane.ERROR_MESSAGE);
         } else {
-            // Si no existe, agregarlo al comboBox
+            // Agregar el módulo si no existe
             comboElemento.addItem(modulo);
             JOptionPane.showMessageDialog(this, "Módulo añadido correctamente: " + modulo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            // Limpiar el campo de texto
+
+            // Resetear el campo de texto a su valor predeterminado
             textoEntrada.setText(moduloPredet);
         }
-
     }//GEN-LAST:event_botonAñadirActionPerformed
 
     private void botonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTodoActionPerformed
@@ -182,24 +185,26 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     private void botonAñadirTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirTodoActionPerformed
 
         rellernarArrayList();
-        
+        boolean algunoAñadido = false;
+        boolean duplicadosEncontrados = false;
+
         for (String it : modulosCurso) {
-            boolean existe = false;
 
-            // Verificar si el módulo ya está en el comboBox
-            for (int i = 0; i < comboElemento.getItemCount(); i++) {
-                if (comboElemento.getItemAt(i).equalsIgnoreCase(it)) {
-                    existe = true;
-                    break;
-                }
-            }
-
-            // Si no existe, agregarlo al comboBox
-            if (!existe) {
-                comboElemento.addItem(it.toString());
+            if (existeModuloEnComboBox(it)) {
+                duplicadosEncontrados = true;
+            } else {
+                comboElemento.addItem(it);  // Añadir el módulo si no existe
+                algunoAñadido = true;
             }
         }
-        JOptionPane.showMessageDialog(this, "Todos los módulos han sido añadidos.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        if (duplicadosEncontrados && !algunoAñadido) {
+            JOptionPane.showMessageDialog(this, "Algunos módulos ya existen en la lista.", "Duplicados Encontrados", JOptionPane.ERROR_MESSAGE);
+        }
+
+        if (algunoAñadido) {
+            JOptionPane.showMessageDialog(this, "Todos los módulos nuevos han sido añadidos.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_botonAñadirTodoActionPerformed
 
     private void textoEntradaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoEntradaKeyPressed
@@ -237,7 +242,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(practica_2_3_JF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
