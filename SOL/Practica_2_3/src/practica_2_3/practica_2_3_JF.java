@@ -14,7 +14,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     public void rellernarArrayList() {
         modulosCurso.add("Programacion");
         modulosCurso.add("Bases de Datos");
-        modulosCurso.add("S.G.E");
+        modulosCurso.add("Sistemas de Gestion Empresarial");
         modulosCurso.add("Acceso a Datos");
         modulosCurso.add("Lenguaje de Marcas");
 
@@ -22,16 +22,6 @@ public class practica_2_3_JF extends javax.swing.JFrame {
 
     public practica_2_3_JF() {
         initComponents();
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace(); // Imprime el error en caso de que falle
-        }
     }
 
     @SuppressWarnings("unchecked")
@@ -192,13 +182,13 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     private void botonAñadirTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirTodoActionPerformed
 
         rellernarArrayList();
-
-        for (String modulo : modulosCurso) {
+        
+        for (String it : modulosCurso) {
             boolean existe = false;
 
             // Verificar si el módulo ya está en el comboBox
             for (int i = 0; i < comboElemento.getItemCount(); i++) {
-                if (comboElemento.getItemAt(i).equalsIgnoreCase(modulo)) {
+                if (comboElemento.getItemAt(i).equalsIgnoreCase(it)) {
                     existe = true;
                     break;
                 }
@@ -206,7 +196,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
 
             // Si no existe, agregarlo al comboBox
             if (!existe) {
-                comboElemento.addItem(modulo.toString());
+                comboElemento.addItem(it.toString());
             }
         }
         JOptionPane.showMessageDialog(this, "Todos los módulos han sido añadidos.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -247,6 +237,17 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(practica_2_3_JF.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Manejo de excepciones
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
