@@ -160,22 +160,23 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El módulo no puede estar vacío. Introduzca un módulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         if (!modulo.matches("[a-zA-Z]+")) {
             javax.swing.JOptionPane.showMessageDialog(this, "El modulo solo puede tener simbolos alfabéticos.(Sin espacios)", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         if (existeModuloEnComboBox(modulo)) {
             JOptionPane.showMessageDialog(this, "El módulo ya existe en la lista.", "ERROR", JOptionPane.ERROR_MESSAGE);
-        } else {
-            // Agregar el módulo si no existe
-            comboElemento.addItem(modulo);
-            JOptionPane.showMessageDialog(this, "Módulo añadido correctamente: " + modulo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-
-            // Resetear el campo de texto a su valor predeterminado
-            textoEntrada.setText(moduloPredet);
+            return;
         }
+        // Agregar el módulo si no existe
+        comboElemento.addItem(modulo);
+        JOptionPane.showMessageDialog(this, "Módulo añadido correctamente: " + modulo, "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
+        // Resetear el campo de texto a su valor predeterminado
+        textoEntrada.setText(moduloPredet);
+
     }//GEN-LAST:event_botonAñadirActionPerformed
 
     private void botonBorrarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarTodoActionPerformed
