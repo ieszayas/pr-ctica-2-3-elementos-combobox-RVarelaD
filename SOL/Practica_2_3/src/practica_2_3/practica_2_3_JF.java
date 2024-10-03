@@ -160,6 +160,11 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El módulo no puede estar vacío. Introduzca un módulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        if (!modulo.matches("[a-zA-Z]+")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El modulo solo puede tener simbolos alfabéticos.(Sin espacios)", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         if (modulo.charAt(0) == ' ' || modulo.charAt(modulo.length() - 1) == ' ') {
             JOptionPane.showMessageDialog(this, "El módulo no puede empezar/terminar por un espacio.", "ERROR", JOptionPane.ERROR_MESSAGE);
