@@ -1,18 +1,31 @@
 package practica_2_3;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class practica_2_3_JF extends javax.swing.JFrame {
 
     private final ArrayList<String> modulosCurso = new ArrayList();
 
-    public void rellernarArrayList() {
-        modulosCurso.add("PROGRAMACION");
-        modulosCurso.add("BBDD");
-        modulosCurso.add("SGE");
-        modulosCurso.add("EMPRESA");
-        modulosCurso.add("DI");
+    public void rellernarArrayListPri() {
+        modulosCurso.clear();
+        modulosCurso.add("Programacion");
+        modulosCurso.add("Bases de Datos");
+        modulosCurso.add("Lenguaje de marcas");
+        modulosCurso.add("FOL");
+        modulosCurso.add("Entornos de desarrollo");
+        modulosCurso.add("Sistemas Informaticos");
+    }
+
+    public void rellernarArrayListSeg() {
+        modulosCurso.clear();
+        modulosCurso.add("Programacion de Servicios");
+        modulosCurso.add("Acceso a Datos");
+        modulosCurso.add("Sistemas de Gestion Empresarial");
+        modulosCurso.add("Empresa");
+        modulosCurso.add("Desarrollo de Interfaces");
+        modulosCurso.add("Android");
     }
 
     //Metodo para comprobar si existen o no los modulos (devuelve boolean)
@@ -42,6 +55,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
         botonAñadirTodo = new javax.swing.JButton();
         botonBorrarTodo = new javax.swing.JButton();
         comboCursos = new javax.swing.JComboBox<>();
+        botonBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar Elementos Combobox");
@@ -85,6 +99,14 @@ public class practica_2_3_JF extends javax.swing.JFrame {
 
         comboCursos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Primero", "Segundo" }));
 
+        botonBorrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\dvdor\\OneDrive\\Documentos\\GitHub\\pr-ctica-2-3-elementos-combobox-RVarelaD\\SOL\\Practica_2_3\\src\\practica_2_3\\d280cc3b5cc7879de3e2c679259d8904.png")); // NOI18N
+        botonBorrar.setToolTipText("");
+        botonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -108,7 +130,9 @@ public class practica_2_3_JF extends javax.swing.JFrame {
                                 .addComponent(botonBorrarTodo)
                                 .addComponent(botonAñadirTodo))
                             .addComponent(comboCursos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(135, 135, 135))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(botonBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,17 +141,19 @@ public class practica_2_3_JF extends javax.swing.JFrame {
                 .addComponent(Texto1)
                 .addGap(20, 20, 20)
                 .addComponent(comboCursos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboElemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboElemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textoEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botonBorrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonAñadir)
                     .addComponent(botonAñadirTodo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botonBorrarTodo)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +166,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -176,7 +202,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El módulo no puede estar vacío. Introduzca un módulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         if (!modulo.matches("[a-zA-Z]+")) {
             javax.swing.JOptionPane.showMessageDialog(this, "El modulo solo puede tener simbolos alfabéticos.(Sin espacios)", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
@@ -202,27 +228,28 @@ public class practica_2_3_JF extends javax.swing.JFrame {
 
     private void botonAñadirTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAñadirTodoActionPerformed
 
-        rellernarArrayList();
-
         boolean algunoAñadido = false;
         boolean duplicadosEncontrados = false;
 
         String curso = comboCursos.getSelectedItem().toString(); // Primero o Segundo
         String prefijoC = "";
         String moduloConCurso = "";
-        
-        
+
         // Asignar prefijo según el curso seleccionado
-        if (curso.equals("Primero")) {
+        if (curso.equalsIgnoreCase("primero")) {
             prefijoC = "1º ";
-        } else if (curso.equals("Segundo")) {
+            rellernarArrayListPri();
+        }
+
+        if (curso.equals("Segundo")) {
             prefijoC = "2º ";
+            rellernarArrayListSeg();
         }
 
         for (String it : modulosCurso) {
-            
+
             moduloConCurso = prefijoC + it;
-            
+
             if (existeModuloEnComboBox(moduloConCurso)) {
                 duplicadosEncontrados = true;
             } else {
@@ -248,6 +275,20 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             textoEntrada.setText("");
         }
     }//GEN-LAST:event_textoEntradaKeyPressed
+
+    private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrarActionPerformed
+
+        int moduloSelec = comboElemento.getSelectedIndex();
+
+        if (moduloSelec == -1) {
+            JOptionPane.showMessageDialog(this, "No hay ningún módulo seleccionado para eliminar.", "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;  // Salimos del método si no hay nada seleccionado
+        }
+
+        // Eliminar directamente el módulo seleccionado
+        comboElemento.removeItemAt(moduloSelec);
+        JOptionPane.showMessageDialog(this, "Módulo eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_botonBorrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,6 +340,7 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     private javax.swing.JLabel Texto1;
     private javax.swing.JButton botonAñadir;
     private javax.swing.JButton botonAñadirTodo;
+    private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonBorrarTodo;
     private javax.swing.JComboBox<String> comboCursos;
     private javax.swing.JComboBox<String> comboElemento;
