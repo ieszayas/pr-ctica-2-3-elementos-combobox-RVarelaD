@@ -8,11 +8,11 @@ public class practica_2_3_JF extends javax.swing.JFrame {
     private final ArrayList<String> modulosCurso = new ArrayList();
 
     public void rellernarArrayList() {
-        modulosCurso.add("Programacion");
-        modulosCurso.add("Bases de Datos");
-        modulosCurso.add("Sistemas de Gestion Empresarial");
-        modulosCurso.add("Acceso a Datos");
-        modulosCurso.add("Lenguaje de Marcas");
+        modulosCurso.add("PROGRAMACION");
+        modulosCurso.add("BBDD");
+        modulosCurso.add("SGE");
+        modulosCurso.add("EMPRESA");
+        modulosCurso.add("DI");
     }
 
     //Metodo para comprobar si existen o no los modulos (devuelve boolean)
@@ -176,9 +176,9 @@ public class practica_2_3_JF extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El módulo no puede estar vacío. Introduzca un módulo.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        if (modulo.charAt(0) == ' ' || modulo.charAt(modulo.length() - 1) == ' ') {
-            JOptionPane.showMessageDialog(this, "El módulo no puede empezar/terminar por un espacio.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        
+        if (!modulo.matches("[a-zA-Z]+")) {
+            javax.swing.JOptionPane.showMessageDialog(this, "El modulo solo puede tener simbolos alfabéticos.(Sin espacios)", "ERROR", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
